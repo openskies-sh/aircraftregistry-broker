@@ -1,4 +1,4 @@
-**Update July 2019**: **This is a maintained fork of the [GUTMA Registry Broker](https://github.com/gutma-org/droneregistry-broker) that includes integration with OpenID and OpenID Connect usign OAuth**
+**Update July 2019**: **This is a maintained fork of the [GUTMA Registry Broker](https://github.com/gutma-org/droneregistry-broker) that includes integration with OpenID and OpenID Connect. It uses OAuth tokens to query the registries.**
 
 ## Key Changes
 This fork includes significant changes and updates to the GUTMA broker:
