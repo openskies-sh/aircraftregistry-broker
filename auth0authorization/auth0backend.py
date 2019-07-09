@@ -30,7 +30,7 @@ class Auth0(BaseOAuth2):
         issuer = 'https://' + self.setting('DOMAIN') + '/'
         audience = self.setting('KEY')  # CLIENT_ID
         payload = jwt.decode(id_token, jwks.read(), algorithms=['RS256'], audience=audience, issuer=issuer)
-        print(response)
+        
         return {'username': payload['nickname'],
                 'first_name': payload['name'],
                 # 'picture': payload['picture'],
