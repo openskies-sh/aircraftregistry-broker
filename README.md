@@ -2,10 +2,10 @@
 
 Welcome to the GUTMA drone registry broker sandbox. This site has three things: 
 
-1. [Registry Broker Whitepaper](https://github.com/gutma-org/droneregistry-broker/blob/master/documents/Registration-Brokerage-Specification.pdf), read this first to familiarize yourself with idea behind the broker. 
+1. [Registry Broker Whitepaper](https://github.com/gutma-org/aircraftregistry-broker/blob/master/documents/Registration-Brokerage-Specification.pdf), read this first to familiarize yourself with idea behind the broker. 
 
 
-2. Two working registries with sample data. The first registry is `registryA`  and the second one is `registryB`. These are instances of the GUTMA droneregistry repository. You can explore operators in [registryA](http://registrya.herokuapp.com/api/v1/operators) or [registryB](http://registryb.herokuapp.com/api/v1/operators). These are independent registries and try to simulate national registries. 
+2. Two working registries with sample data. The first registry is `registryA`  and the second one is `registryB`. These are instances of the GUTMA aircraftregistry repository. You can explore operators in [registryA](http://registrya.herokuapp.com/api/v1/operators) or [registryB](http://registryb.herokuapp.com/api/v1/operators). These are independent registries and try to simulate national registries. 
    
 3. The user enters a ID in the form and gets a token return that can be queried for status and results.
 

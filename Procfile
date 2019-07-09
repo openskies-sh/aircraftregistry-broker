@@ -1,2 +1,2 @@
-web: gunicorn droneregistry-broker.wsgi
+web: gunicorn aircraftregistry-broker.wsgi
 worker: celery worker --app=switchboard

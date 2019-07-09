@@ -20,7 +20,7 @@ parts/
 sdist/
 var/
 wheels/
-droneregistry-broker-env/
+aircraftregistry-broker-env/
 *.egg-info/
 .installed.cfg
 *.egg
