@@ -144,9 +144,9 @@ SOCIAL_AUTH_AUTH0_SECRET = os.environ.get('AUTH0_CLIENT_SECRET')
 SOCIAL_AUTH_AUTH0_SCOPE = [
     'openid',
     'profile', 
-    'read:rpas', 
-    'read:operator', 
-    'read:privilaged'
+    'read:operator',
+    'read:operator:all',
+    'read:operator:privilaged'
 ]
 SOCIAL_AUTH_AUTH0_DOMAIN = os.environ.get('AUTH0_DOMAIN')
 AUDIENCE = None
