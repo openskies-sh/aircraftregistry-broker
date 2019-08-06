@@ -1,6 +1,6 @@
 ## Drone Registry Brokerage
 
-In the EU, there are regulations which mean that member states will develop a digital registry of drone operators and equipment. In many cases there will be different registries within a member state depending on the political and administrative structures in place. Each of these registries will have their own API to query it. GUTMA has been working in developing an API specification \[1\] that we hope that all the CAAs and EASA adopts. Adopting this specification ensures that registries developed have common language of querying its data.
+In the EU, there are regulations which mean that member states will develop a digital registry of drone operators and equipment. In many cases there will be different registries within a member state depending on the political and administrative structures in place. Each of these registries will have their own API to query it. GUTMA has been working in developing an API specification \[1\] that we hope that there will be broad adoption among the CAAs. Adopting this specification ensures that registries developed have common language of querying its data.
 
 ### The problem
 
@@ -12,19 +12,19 @@ We expect most queries will happen within a country, but we also expect that que
 
 For an entity trying to query registries that implements the GUTMA API specification there are many issues that they face as shown above:
 
-1. How do they know if the registry is indeed implemented (and what version)?
+1. How do they know if the registry is indeed implemented (and what version)? Service discovery
 
-2. How do they manage credentials of all the entities that they are trying to query?
+2. How do they manage credentials of all the entities that they are trying to query? This is both a problem of the technology and the mechanism of storing and passing credentials. 
 
-3. How are changes to registry API managed? e.g. the GUTMA API specification is at v1 but in the future when it develops and v2 is released, a CAA might implement v2, how does a CAA know which API is available and queryable.
+3. How are changes to registry API managed? e.g. the GUTMA API specification is at v1 but in the future when it develops and v2 is released, a CAA might implement v2, how does a CAA know which API is available and queryable. 
 
-4. How does one CAA know the URL of the registry service of another CAA?
+4. How does one CAA know the URL of the registry service of another CAA? 
 
 5. How does a registry know if the entity querying it is indeed privileged? i.e. police
 
-These are not problems of an individual registry, any registry operator will face these issues and will have to develop solutions independently.
+These are not problems of an individual registry, any registry operator will face these issues and will have to develop solutions independently. In some ways these are tehcnical problems as well as procedural problems. In some cases e.g. the discovery problem is more about who maintains a list of registry endpoints could be ICAO but this will require co-ordination at a different level. 
 
-#### Use Case
+#### Example Use Case
 
 A CAA or interested party in Geneva wants to query the French registry (neighboring country), given the proximity of France and Switzerland, the Swiss CAA might just make a special agreement with the French CAA and have logins and credentials for their registry. In such a case, there is no need for the Swiss CAA to use the broker. However, if the CAA wants to query the registry in Estonia for e.g., they may not have contacts or credentials to query it in such a case they might use the
 broker. What this does for the CAAs is gives them flexibility to maintain individual relationships and not have to worry about developing a relationship with all 27-member states (and beyond). This also means that the Swiss CAA does not have to store credentials for different registries, maintain them etc.
