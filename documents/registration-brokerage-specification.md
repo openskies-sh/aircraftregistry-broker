@@ -142,7 +142,7 @@ The core addition in this figure is a Identity and Authentication provider that 
 
 | Date | Version | Comments | Author |
 | ------------- | ------------- |------------- |------------- |
-| 8-August-2019  | V4  | Reword introduction and   | Dr. Hrishikesh Ballal |
+| 8-August-2019  | V4  | Reword introduction and sections   | Dr. Hrishikesh Ballal |
 | 5-August-2019  | V3  | Formatting update and added integration with ICAO Trust Framework  | Dr. Hrishikesh Ballal |
 | 14-March-2019  | V2  | Added Comments and review from NUAIR  | Dr. Hrishikesh Ballal / Andy Thurling |
 | 23-Sep-2018   | V1  | Initial Draft  | Dr. Hrishikesh Ballal |
