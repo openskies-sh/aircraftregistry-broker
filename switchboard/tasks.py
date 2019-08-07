@@ -102,7 +102,7 @@ def QueryRegistries(jobid):
     
     myOpsLogger = SearchQueryStatusLogger(registries)
     
-    myBrokerHelper = BrokerManager( query_type = sq.query_type, query_parameter= sq.query_parameter, query = sq.query, credentials = sq.credentials)
+    myBrokerHelper = BrokerManager(query_type = sq.query_type, query_parameter= sq.query_parameter, query = sq.query, credentials = sq.credentials)
                 
     res = []
     for registry in registries:
@@ -115,8 +115,3 @@ def QueryRegistries(jobid):
     sq.results = res
     sq.logs = myOpsLogger.get_allstatuses()
     sq.save()
-
-
-@task(name="Add")
-def Add(x, y):
-    return x + y

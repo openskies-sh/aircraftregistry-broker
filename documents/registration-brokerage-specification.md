@@ -1,46 +1,43 @@
 ## Aircraft Registry Brokerage
 
-In the EU specifically and in other places around the world, there are existing and upcoming regulations that mean that member states will develop a digital registry of drone operators and equipment. The registry itself is out of scope for this document you can review the [registry whitepaper here](https://github.com/openskies-sh/aircraftregistry/blob/master/documents/registration-white-paper.md). It is important in this context, is recognizing the fact that there will be many registries at different administrative levels across the world. These could be at different levels of administration: local, state and federal. This document is focused on how these different registries could connect and exchange data securely.
+In the EU specifically and in other places around the world, there are existing and upcoming regulations that mean that member states will develop a digital registry of drone operators and equipment. The registry (schema and API) are out of scope for this document you can review the [registry whitepaper here](https://github.com/openskies-sh/aircraftregistry/blob/master/documents/registration-white-paper.md). What is important in this context, is recognizing the fact that there will be many registries at different administrative levels across the world: local, state and federal. This document is focused on how these different registries could connect and exchange data and information securely.
 
 ### The problem
 
-We expect most queries to a registry will happen within a single administrative and jurisdictional setup, we also expect that queries would be made across national and administrative boundaries. There are potentially hundreds of registries that we expect to be online eventually in different geographies.
-
-The data in the registries will have to be queried securely. This document covers scenarios where multiple registries would be queried in real time securely.
-
+We expect a majority of the queries to a registry will happen within a single administrative and jurisdictional setup, however there will be a significant number of queries would be made across different registries between national and administrative boundaries. This document details a system that enables communication between different registries regardless of where they are located. We assume that data in the registries will have to be queried securely and in realtime.
 
 #### The problem: Querying many different registries
 
 <img src="https://i.imgur.com/6qX5guv.jpg" height="500">
 
-For an entity trying to query registries that implements a public API has to deal with the following issues:
+An entity (interested party) trying to query registries that implements a public API has to deal with the following issues:
 
-1. How do they know if the registry API exists and the endpoints to query? 
+1. How do they know if the registry exists and has a API endpoints to query? 
 
-2. How do they manage identity and credentials and passing them as they are trying to query? This is both a problem of the technology and the mechanism of storing and passing credentials.
+2. How do they manage identity and credentials and passing them as they are trying to query? Where do they get these credentials? This is both a problem of the technology and the mechanism of storing and passing credentials.
 
-3. How are changes to registry API managed? e.g. if there are changes to a endpoint, data or credential requirements.
+3. How are changes to registry API managed and communicated? e.g. if there are changes to a endpoint, data or credential requirements.
 
 4. How does one know the URL of the registry services that are compatible and available?
 
-5. How does a registry know if the entity querying it is indeed privileged? i.e. police
+5. How does a registry know if the entity querying it is indeed privileged? i.e. authenticated that the query is indeed coming from the police for e.g.
 
-These are not problems of an individual registry, any registry operator will face these issues and will have to develop solutions independently. In some ways these are tehcnical problems as well as procedural problems. In some cases e.g. the discovery problem is more about who maintains a list of registry endpoints could be ICAO but this will require co-ordination at a different level organizationally.
+In some ways these are a combination of technical and procedural problems that will impact  any registry operator. In the worst case every operator will have to develop solutions independently for specific problems. These problems also span a number of domains: service discovery, identity and authentication and organization of registries.
 
-#### Example Use Case
+### Example Use Case
 
-A CAA or interested party in Geneva wants to query the French registry (neighboring country), given the proximity of France and Switzerland, the Swiss CAA might just make a special agreement with the French CAA and have logins and credentials for their registry. In such a case, there is no need for the Swiss CAA to use the broker. However, if the CAA wants to query the registry in Estonia for e.g., they may not have contacts or credentials to query it in such a case they might use the broker. Another use case might be that a pilot registered and certified in France wants to fly his drone in Germany. German authorities might want to check his certifications and if they are valid (digitally).
+A CAA or interested party in Geneva wants to query the French registry (neighboring country), given the proximity of France and Switzerland, the Swiss CAA might just make a special agreement with the French CAA and have logins and credentials for their registry. In such a case, there is no need for the Swiss CAA to use a general purpose system. However, if the CAA wants to query the registry in Estonia for e.g., they may not have contacts or credentials to query it in such a case they might use the broker. Another use case might be that a pilot registered and certified in France wants to fly his drone in Germany. German authorities might want to check his certifications and if they are valid (digitally).
 
 These are some examples of querying a different registry and it trasnforms the role of a registry from a data store to making a active living system. It is important to consider the implications of a such a system since how this is done has important technical and architectural implementations. Specifically, deciding on the architectural direction will enable us to analyze the best way forward around difficult consideration around storing credentials and managing them.
 
 #### How to address these problems?
 
-There are many ways to address this problem. Let us begin with non-technical solutions:
+There are many ways to address this problem, they are mainly of communication and co-ordination between the different entities. One argument is that this can be managed by people-to-people contact but for truly scalable solutions, a software based implementation is necessary. Let us begin with non-technical solutions:
 
-1. Build a list of registries and their endpoints and API and maintain it as a organizational responsibility e.g. by ICAO, JARUS or other relevant national authorities. 
+1. Build a list of registries and their endpoints and API and maintain it as a organizational responsibility e.g. by ICAO, JARUS or other relevant national authorities.
 2. Develop a forum / portal to share the latest in updates and between different entities. Allow the CAAs to engage and announce and clarify changes to their APIs.
 
-While these methods are useful and can work, it is not scalable. In addition, in a federated registry model the registry endpoint is decentralized and discovery of registries is a issue. A software solution to this problem is to build a bridge between the individual registries and the clients / interested parties querying it. Conceptually, it would look like the following:
+While these methods are useful and can work, as mentioned earlier, they are not scalable. In addition, in a federated registration model the registry endpoint is decentralized and discovery of registries is a issue and co-ordinting this manually is a problematic task. A software solution to this problem is to build a bridge between the individual registries and the clients / interested parties querying it. Conceptually, it would look like the following:
 
 <img src="https://i.imgur.com/7225wmh.jpg" height="500">
 
@@ -130,7 +127,7 @@ Data scraping / storage involves taking a snapshot of the registries and buildin
 | ------------- | ------------- |
 | Fastest performance and query response | Data may not be “fresh” | 
 | Most control for operator | Rigorous controls and data safety procedures necessary|
-|Management of changes / updates | - GDPR issues in addition to security and other issues of storing data in a central database|
+|Management of changes / updates | GDPR issues in addition to security and other issues of storing data in a central database|
 
 ### Integration with ICAO Trust Framework 
 
