@@ -63,7 +63,7 @@ The primary goal of this spec is to develop a brokerage layer where incoming req
 | ------------- | ------------- | ------------- |
 | Authentication credentials for regular queries:<br> Account creation <br>Email contact address | If unprivileged entities are throttled then no need for any authentication information for regular interested parties, only the destination county and the type of information (API call) that is being made. | Maintain username and password for operators and any other interested party that wants to query the registry. | 
 | Throttle all unprivileged requests | Maintain a list of privileged client access tokens (and documentation) | Maintain separate documentation and credentials for privileged access. |
-| Privileged authentication credentials e.g. police, military etc. <br> Some certificate that the party is indeed a privileged entity <br> Authorization keys for that entity (open question: how keys are recycled)| 	Maintain list of documentation and certificates etc. | Maintain credentials for Brokers like GUTMA to ensure that access is maintained |
+| Privileged authentication credentials e.g. police, military etc. Some certificate authority to verify the keys that the party is indeed a privilaged entity and authorization keys for that entity (open question: how keys are recycled)| Maintain list of documentation and certificates etc. | Maintain credentials for Brokers to ensure that access is not broken |
 
 #### Notes on privileged access
 
