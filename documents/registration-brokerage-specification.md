@@ -1,28 +1,31 @@
-## Drone Registry Brokerage
+## Aircraft Registry Brokerage
 
-In the EU, there are regulations which mean that member states will develop a digital registry of drone operators and equipment. In many cases there will be different registries within a member state depending on the political and administrative structures in place. Each of these registries will have their own API to query it. GUTMA has been working in developing an API specification \[1\] that we hope that there will be broad adoption among the CAAs. Adopting this specification ensures that registries developed have common language of querying its data.
+In the EU specifically and in other places around the world, there are existing and upcoming regulations that mean that member states will develop a digital registry of drone operators and equipment. The registry itself is out of scope for this document you can review the [registry white-paper here](https://github.com/openskies-sh/aircraftregistry/blob/master/documents/registration-white-paper.md). What is more important for this paper is recognizing the fact that there will be many registries at different administrative level across the world. These could be at different levels of administration: local, state and federal. This document is focused on how these different registries could connect and exchange data securely.
 
 ### The problem
 
-We expect most queries will happen within a country, but we also expect that queries would be made across national and administrative boundaries. There are potentially hundreds of registries that we expect to be online eventually in different geographies.
+We expect most queries to a registry will happen within a administrative and jurisdictional, we also expect that queries would be made across national and administrative boundaries. There are potentially hundreds of registries that we expect to be online eventually in different geographies.
 
-<img src="https://i.imgur.com/6qX5guv.jpg" height="500">
+The data in the registries will have to be queried securely. This document covers scenarios where multiple registries would be queried in real time securely.
+
 
 #### The problem: Querying many different registries
 
-For an entity trying to query registries that implements the GUTMA API specification there are many issues that they face as shown above:
+<img src="https://i.imgur.com/6qX5guv.jpg" height="500">
 
-1. How do they know if the registry is indeed implemented (and what version)? Service discovery
+For an entity trying to query registries that implements a public API has to deal with the following issues: 
 
-2. How do they manage credentials of all the entities that they are trying to query? This is both a problem of the technology and the mechanism of storing and passing credentials. 
+1. How do they know if the registry API exists and the endpoints to query? 
 
-3. How are changes to registry API managed? e.g. the GUTMA API specification is at v1 but in the future when it develops and v2 is released, a CAA might implement v2, how does a CAA know which API is available and queryable. 
+2. How do they manage identity and credentials and passing them as they are trying to query? This is both a problem of the technology and the mechanism of storing and passing credentials.
 
-4. How does one CAA know the URL of the registry service of another CAA? 
+3. How are changes to registry API managed? e.g. if there are changes to a endpoint, data or credential requirements.
+
+4. How does one know the URL of the registry services that are compatible and available?
 
 5. How does a registry know if the entity querying it is indeed privileged? i.e. police
 
-These are not problems of an individual registry, any registry operator will face these issues and will have to develop solutions independently. In some ways these are tehcnical problems as well as procedural problems. In some cases e.g. the discovery problem is more about who maintains a list of registry endpoints could be ICAO but this will require co-ordination at a different level. 
+These are not problems of an individual registry, any registry operator will face these issues and will have to develop solutions independently. In some ways these are tehcnical problems as well as procedural problems. In some cases e.g. the discovery problem is more about who maintains a list of registry endpoints could be ICAO but this will require co-ordination at a different level.
 
 #### Example Use Case
 
@@ -33,10 +36,10 @@ broker. What this does for the CAAs is gives them flexibility to maintain indivi
 
 There are many ways to address this problem. Let us begin with non-technical solutions:
 
-1. Hold a monthly or quarterly meeting between the CAAs
+1. Build a list of registries and their endpoints and API and maintain it as a organizational responsibility e.g. by ICAO, JARUS or other relevant national authorities. 
 2. Develop a portal to share the latest in updates and between different entities. Allow the CAAs to engage and announce and clarify changes
 
-While these methods are useful and can work, we acknowledge that most of the CAAs will outsource the actual registry work to their IT vendors or external third parties who might not be interested or motivated to engage. A software solution to this problem is to build a bridge between the individual registries and the clients / interested parties querying it. Conceptually, it would look like the following:
+While these methods are useful and can work, it is not scalable. In addition, in a federated registry model the registry endpoint is decentralized and discovery of registries is a issue. A software solution to this problem is to build a bridge between the individual registries and the clients / interested parties querying it. Conceptually, it would look like the following:
 
 <img src="https://i.imgur.com/7225wmh.jpg" height="500">
 
@@ -120,7 +123,8 @@ A alternative architecture to overcome the issue of data and external queries, i
 
 
 ##### Option C: Data Scraping / Storage Pros and Cons
-  
+Data scraping / storage involves taking a snapshot of the registries and building a "master" database. Setting aside the difficulty in achieving this, there are some benefits that need to be explored. 
+
 | Pros  | Cons |
 | ------------- | ------------- |
 | Fastest performance and query response | Data may not be “fresh” | 
@@ -130,16 +134,16 @@ A alternative architecture to overcome the issue of data and external queries, i
 ### Integration with ICAO Trust Framework 
 
 <img src="https://i.imgur.com/RMl4kGK.jpg">
-Figure 4: A conceptual flow of secured endpoints
+Figure 4: A conceptual flow of secured endpoints.
 
-#### References
+The core addition in this figure is a Identity and Authentication provider that adopts the concepts of the ICAO Trust framework. The provider issues tokens and credentials to query the registry via the broker. The credentials and JavaScript Web Tokens (JWT) are securely passed to the broker and finally to the registry. The decryption and validation of the tokens happens at the registry level. 
 
-[1] – <https://droneregistry.herokuapp.com>
 
 #### Version History
 
 | Date | Version | Comments | Author |
 | ------------- | ------------- |------------- |------------- |
+| 8-August-2019  | V4  | Reword introduction and   | Dr. Hrishikesh Ballal |
 | 5-August-2019  | V3  | Formatting update and added integration with ICAO Trust Framework  | Dr. Hrishikesh Ballal |
 | 14-March-2019  | V2  | Added Comments and review from NUAIR  | Dr. Hrishikesh Ballal / Andy Thurling |
 | 23-Sep-2018   | V1  | Initial Draft  | Dr. Hrishikesh Ballal |
