@@ -125,7 +125,7 @@ Data scraping / storage involves taking a snapshot of the registries and buildin
 
 | Pros  | Cons |
 | ------------- | ------------- |
-| Fastest performance and query response | Data may not be “fresh” | 
+| Fastest performance and query response | Data may not be “fresh” |
 | Most control for operator | Rigorous controls and data safety procedures necessary|
 |Management of changes / updates | GDPR issues in addition to security and other issues of storing data in a central database|
 
@@ -135,7 +135,7 @@ Data scraping / storage involves taking a snapshot of the registries and buildin
 
 Figure 4: A conceptual flow of secured endpoints.
 
-The core addition in this figure is a Identity and Authentication provider that adopts the concepts of the ICAO Trust framework. The provider issues tokens and credentials to query the registry via the broker. The credentials and JavaScript Web Tokens (JWT) are securely passed to the broker and finally to the registry. The decryption and validation of the tokens happens at the registry level. 
+The core addition in this figure is a Identity and Authentication provider that adopts the concepts of the ICAO Trust framework. The provider issues tokens and credentials to query the registry via the broker. The credentials and JavaScript Web Tokens (JWT) are securely passed to the broker and finally to the registry. The decryption and validation of the tokens happens at the registry level.
 
 
 #### Version History
