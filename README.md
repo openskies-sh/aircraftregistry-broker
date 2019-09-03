@@ -1,23 +1,22 @@
 **Update July 2019**: **This is a maintained fork of the [GUTMA Registry Broker](https://github.com/gutma-org/droneregistry-broker) that includes integration with OpenID and OpenID Connect. It uses OAuth tokens to query the registries.**
 
-## Key Changes
-This fork includes significant changes and updates to the GUTMA broker:
+## Read First and Key Changes
+This fork includes significant changes and updates to the GUTMA repository:
 
-1) Integration with Identification and Authentication
+1) Integration with Identification and Authentication, currently using Auth0 and JWT Tokens
 2) Updated URL endpoints of login and identity
 
 This uses the Auth0 service to issue OpenID and OpenID Connect tokens to perform authentication and privilages.
 
 ## Registry Broker
 
-Welcome to the registry broker sandbox. This site has three things: 
+Welcome to the registry broker sandbox. This site has three things:
 
-1. [Registry Broker Whitepaper](https://github.com/openskies-sh/aircraftregistry-broker/blob/master/documents/registration-brokerage-specification.md), read this first to amiliarize yourself with idea behind the broker. 
+1. [Registry Broker Whitepaper](https://github.com/openskies-sh/aircraftregistry-broker/blob/master/documents/registration-brokerage-specification.md), read this first to amiliarize yourself with idea and key concepts behind the broker.
 
+2. One working registry with sample data. The first registry is `registryA`, this is a instance of [aircraftregistry](https://github.com/openskies-sh/aircraftregistry) repository. You can explore operators in [registryA](http://aircraftregistry.herokuapp.com/api/v1/operators). 
 
-2. Two working registries with sample data. The first registry is `registryA`  and the second one is `registryB`. These are instances of the GUTMA aircraftregistry repository. You can explore operators in [registryA](http://registrya.herokuapp.com/api/v1/operators) or [registryB](http://registryb.herokuapp.com/api/v1/operators). These are independent registries and try to simulate national registries.
-
-3. The user enters a ID in the form and gets a token return that can be queried for status and results.
+3. The logs in using their email ID in the form and gets a token return that can be queried for status and results.
 
 ## Contribute
 

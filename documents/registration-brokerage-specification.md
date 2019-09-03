@@ -86,7 +86,7 @@ In this setup, no data is stored on the broker servers other than the credential
 
 #### Security
 
-For most registry queries, security considerations are straight forward, in that it is a routine query with standard credentials and no sensitive information is transferred. Using standard internet-based security of web tokens should suffice in this case. Proper firewalling and management of data base is necessary.
+For most registry queries, security considerations are critical. All the queries in this eco-system would be considered "standard" credentials and no privilaged information is transferred. Using standard internet-based security of web tokens should suffice in this case. Proper firewalling and management of data base is necessary. While technically security consideration is :straight
 
 #### Conceptual Architecture
 
