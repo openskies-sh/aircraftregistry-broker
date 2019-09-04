@@ -12,7 +12,8 @@ class Auth0(BaseOAuth2):
         # ('picture', 'picture')
     ]
 
-    def authorization_url(self):        
+    def authorization_url(self):
+        print(self.setting('KEY'))
         return 'https://' + settings.SOCIAL_AUTH_AUTH0_DOMAIN + '/authorize'
 
     def access_token_url(self):
@@ -28,7 +29,7 @@ class Auth0(BaseOAuth2):
         
         jwks = request.urlopen('https://' + settings.SOCIAL_AUTH_AUTH0_DOMAIN + '/.well-known/jwks.json')
         issuer = 'https://' + settings.SOCIAL_AUTH_AUTH0_DOMAIN + '/'
-        audience = settings.SOCIAL_AUTH_AUTH0_KEY  # CLIENT_ID
+        audience = settings.SOCIAL_AUTH_AUTH0_DOMAIN  # CLIENT_ID
         payload = jwt.decode(id_token, jwks.read(), algorithms=['RS256'], audience=audience, issuer=issuer)
         
         return {'username': payload['nickname'],

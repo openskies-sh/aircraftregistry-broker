@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '^z_a@yyzuplya(g*9!9gn2s^jl-&c&i_ulqm8m*5qkx9q0@_k-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -133,14 +133,15 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-ENV_FILE = find_dotenv()
-if ENV_FILE:
-    load_dotenv(ENV_FILE)
-
-# SOCIAL AUTH AUTH0 BACKEND CONFIG
 SOCIAL_AUTH_TRAILING_SLASH = False
+if DEBUG:
+    ENV_FILE = find_dotenv()
+    if ENV_FILE:
+        load_dotenv(ENV_FILE)
+
 SOCIAL_AUTH_AUTH0_KEY = os.environ.get('AUTH0_CLIENT_ID')
 SOCIAL_AUTH_AUTH0_SECRET = os.environ.get('AUTH0_CLIENT_SECRET')
+
 SOCIAL_AUTH_AUTH0_SCOPE = [
     'openid',
     'profile', 
@@ -150,6 +151,8 @@ SOCIAL_AUTH_AUTH0_SCOPE = [
 ]
 SOCIAL_AUTH_AUTH0_DOMAIN = os.environ.get('AUTH0_DOMAIN')
 AUDIENCE = None
+
+
 if os.environ.get('AUTH0_AUDIENCE'):
     AUDIENCE = os.environ.get('AUTH0_AUDIENCE')
 else:
@@ -157,7 +160,6 @@ else:
         AUDIENCE = 'https://' + SOCIAL_AUTH_AUTH0_DOMAIN + '/userinfo'
 if AUDIENCE:
     SOCIAL_AUTH_AUTH0_AUTH_EXTRA_ARGUMENTS = {'audience': AUDIENCE}
-
 
 
 if DEBUG:
