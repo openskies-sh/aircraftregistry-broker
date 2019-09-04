@@ -1,7 +1,7 @@
 from urllib import request
 from jose import jwt
 from social_core.backends.oauth import BaseOAuth2
-
+from django.conf import settings
 
 class Auth0(BaseOAuth2):
     """Auth0 OAuth authentication backend"""
@@ -12,11 +12,11 @@ class Auth0(BaseOAuth2):
         # ('picture', 'picture')
     ]
 
-    def authorization_url(self):
-        return 'https://' + self.setting('DOMAIN') + '/authorize'
+    def authorization_url(self):        
+        return 'https://' + settings.SOCIAL_AUTH_AUTH0_DOMAIN + '/authorize'
 
     def access_token_url(self):
-        return 'https://' + self.setting('DOMAIN') + '/oauth/token'
+        return 'https://' + settings.SOCIAL_AUTH_AUTH0_DOMAIN + '/oauth/token'
 
     def get_user_id(self, details, response):
         """Return current user id."""
@@ -26,9 +26,9 @@ class Auth0(BaseOAuth2):
         # Obtain JWT and the keys to validate the signature
         id_token = response.get('id_token')
         
-        jwks = request.urlopen('https://' + self.setting('DOMAIN') + '/.well-known/jwks.json')
-        issuer = 'https://' + self.setting('DOMAIN') + '/'
-        audience = self.setting('KEY')  # CLIENT_ID
+        jwks = request.urlopen('https://' + settings.SOCIAL_AUTH_AUTH0_DOMAIN + '/.well-known/jwks.json')
+        issuer = 'https://' + settings.SOCIAL_AUTH_AUTH0_DOMAIN + '/'
+        audience = settings.SOCIAL_AUTH_AUTH0_KEY  # CLIENT_ID
         payload = jwt.decode(id_token, jwks.read(), algorithms=['RS256'], audience=audience, issuer=issuer)
         
         return {'username': payload['nickname'],
