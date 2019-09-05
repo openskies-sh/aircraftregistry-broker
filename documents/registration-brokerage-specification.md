@@ -131,7 +131,7 @@ Data scraping / storage involves taking a snapshot of the registries and buildin
 
 ### Integration with ICAO Trust Framework 
 
-<img src="https://i.imgur.com/RMl4kGK.jpg" height="400">
+<img src="https://i.imgur.com/2d2FiJK.jpg" height="400">
 
 Figure 4: A conceptual flow of secured endpoints.
 
