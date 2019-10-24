@@ -143,11 +143,31 @@ SOCIAL_AUTH_AUTH0_KEY = os.environ.get('AUTH0_CLIENT_ID')
 SOCIAL_AUTH_AUTH0_SECRET = os.environ.get('AUTH0_CLIENT_SECRET')
 
 SOCIAL_AUTH_AUTH0_SCOPE = [
-    'openid',
-    'profile', 
-    'read:operator',
-    'read:operator:all',
-    'read:operator:privilaged'
+        "read:operator",
+        "read:operator:all",
+        "read:aircraft:all"
+        "read:person",
+        "write:address",
+        "write:operator",
+        "write:contact",
+        "read:contact:all",
+        "read:person:all",
+        "read:contact",
+        "read:pilot",
+        "read:aircraft",
+        "write:aircraft",
+        "write:person",
+        "write:authorization",
+        "write:activity",
+        "read:authorization",
+        "read:activity",
+        "read:address:privileged",
+        "read:aircraft:privileged",
+        "read:operator:privileged",
+        "read:pilot:privileged",
+        "write:address:privileged",
+        "write:operator:privileged"
+      
 ]
 SOCIAL_AUTH_AUTH0_DOMAIN = os.environ.get('AUTH0_DOMAIN')
 AUDIENCE = None
