@@ -118,7 +118,7 @@ class SearchView(LoginRequiredMixin,CreateView):
         # additional_context = {}
         context = super(SearchView, self).get_context_data(*args, **kwargs)
         user = self.request.user
-        auth0user = user.social_auth.get(provider='auth0')  
+        auth0user = user.social_auth.get(provider='auth0')[0]
        
         context['access_token'] = auth0user.access_token
         context['auth0user'] = auth0user
