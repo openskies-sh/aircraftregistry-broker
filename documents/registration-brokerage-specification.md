@@ -93,7 +93,7 @@ For most registry queries, security considerations are critical. All the queries
 This section details some of the architectures that can be pursued for this problem from the least data requirement to maximum data requirements for the solution. And a pros / cons analysis of each approach is conducted as well. An analysis based on data requirements is important because important confidential data is potentially passed through the system.
 
 ##### Option A: Apache Zookeeper 
-A useful approach in this context is if the GUTMA API is successfully adopted, then to prevent duplication and re-architecting the API calls, a simple implementation of Zoo keeper would suffice where the individual registries are managed by the individual CAAs.
+A useful approach in this context is if the Openskies API is successfully adopted, then to prevent duplication and re-architecting the API calls, a simple implementation of Zoo keeper would suffice where the individual registries are managed by the individual CAAs.
 
 ##### Option B: API Broker
 A API broker architecture as described above, needs to store credential information but the actual data is stored in the database owned by the CAAs outside the system.

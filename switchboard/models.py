@@ -11,7 +11,7 @@ from django.core.validators import RegexValidator
 
 class Registry(models.Model):
     
-    VERSION_CHOICES = ((0, _('NA')),(1, _('GUTMA_V1')),(2, _('GUTMA_V2')),)
+    VERSION_CHOICES = ((0, _('NA')),(1, _('Openskies_V1')),(2, _('Openskies_V2')),)
     AUTHENTICATION_METHOD_CHOICES = ((0, _('None')),(1, _('JWT')),(2, _('TOKEN')),)
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     endpoint = models.URLField()
