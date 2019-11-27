@@ -14,7 +14,7 @@ Welcome to the registry broker sandbox. This site has three things:
 
 1. [Registry Broker Whitepaper](https://github.com/openskies-sh/aircraftregistry-broker/blob/master/documents/registration-brokerage-specification.md), read this first to amiliarize yourself with idea and key concepts behind the broker.
 
-2. One working registry with sample data. The first registry is `registryA`, this is a instance of [aircraftregistry](https://github.com/openskies-sh/aircraftregistry) repository. You can explore operators in [registryA](http://aircraftregistry.herokuapp.com/api/v1/operators). 
+2. One working registry with sample data. The first registry is `registryA`, this is a instance of [aircraftregistry](https://github.com/openskies-sh/aircraftregistry) repository. You can explore operators in [registryA](http://aircraftregistry.herokuapp.com/api/v1/operators).
 
 3. The logs in using their email ID in the form and gets a token return that can be queried for status and results.
 
