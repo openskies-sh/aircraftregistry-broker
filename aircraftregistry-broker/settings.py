@@ -144,18 +144,15 @@ SOCIAL_AUTH_AUTH0_SECRET = os.environ.get('AUTH0_CLIENT_SECRET')
 
 SOCIAL_AUTH_AUTH0_SCOPE = [
         "registry.read.operator",
-        "registry.read.address",
-        "registry.read.person",
-        "registry.read.contact",
+        "registry.read.operator_detail",
+        "registry.read.operator_detail.privileged",
+        "registry.read.contact_detail",
+        "registry.read.contact_detail.privileged",
         "registry.read.pilot",
+        "registry.read.pilot_detail",
         "registry.read.aircraft",
-        "registry.read.authorization",
-        "registry.read.activity",
-        "registry.read.address.privileged",
-        "registry.read.aircraft.privileged",
-        "registry.read.operator.privileged",
-        "registry.read.contact.privileged",
-        "registry.read.pilot.privileged",
+        "registry.read.aircraft_detail",
+        "registry.read.aircraft_detail.privileged"
       
 ]
 SOCIAL_AUTH_AUTH0_DOMAIN = os.environ.get('AUTH0_DOMAIN')
