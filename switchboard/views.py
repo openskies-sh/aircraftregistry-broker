@@ -126,9 +126,9 @@ class SearchView(LoginRequiredMixin,CreateView):
         return context
    
     def get_success_url(self):  
-
-        QueryRegistries.delay(jobid = str(self.object.id))
-        content = {'Location': '/api/v1/' + str(self.object.id())}
+        job_id =  str(self.object.id)
+        QueryRegistries.delay(jobid =job_id)
+        content = {'Location': '/api/v1/' + job_id}
         return Response(content, status=status.HTTP_202_ACCEPTED)
         
         # return reverse('search_details',args=(self.object.id,))
