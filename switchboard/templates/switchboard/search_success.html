@@ -1,0 +1,47 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="author" content="Hrishikesh Ballal">
+      <meta name="description" content="Drone Registry Broker">
+      <title>Aircraft Registry Broker</title>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
+      <link rel="stylesheet" href="{% static "switchboard/css/wing.min.css" %}">
+   </head>
+   <body>
+      <div class="container">
+         <div class="nav">
+            <h2>Aircraft Registry Broker</h2>         
+            
+         </div>            
+         <h5>Signed in as {{ user.username }}, welcome!</h5>
+         
+         <p><button class="primary" onclick="window.location.href='/logout'">Logout</button></p>
+         
+         <br>
+         <div class="text-center">
+             You can check the status of your job at <a href="/api/v1/jobs/{{pk}}">{{pk}}</a>
+         </div>
+         <br>
+      </div>
+      
+      
+      </div>
+      <hr>
+      
+      <div class="container">
+         <h4>Contributing</h4>
+         <p>Want to contribute? You can open <a href="https://github.com/openskies-sh/aircraftregistry-broker/issues">issues on this repository</a>. Make comments at open issues to look at the current work in progress. 
+            <br><br><br>
+         <footer class="footer">
+            <div class="content has-text-centered">
+               <p>&copy; 2019 Openskies. Licensed under the <a target="_blank" href="https://opensource.org/licenses/Apache-2.0" title="Apache License">Apache 2.0 License</a>. See the <a target="_blank" href="https://github.com/openskies-sh/aircraftregistry-broker" title="Github Repository">Github repository</a> for more details.</p>
+            </div>
+         </footer>
+      </div>
+   </body>
+</html>
+

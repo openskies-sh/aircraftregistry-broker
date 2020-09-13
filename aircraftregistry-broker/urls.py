@@ -27,6 +27,7 @@ urlpatterns = [
     path('', switchboardviews.HomeView.as_view()),
     path('', include('auth0authorization.urls')),
     path('search', switchboardviews.SearchView.as_view()),
+    path('success/<uuid:pk>', switchboardviews.SuccessView.as_view(), name="success"),
     path('api/v1/jobs/<uuid:pk>', switchboardviews.SearchDetails.as_view(), name="search_details"),    
 
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
