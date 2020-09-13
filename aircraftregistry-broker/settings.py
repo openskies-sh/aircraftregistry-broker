@@ -169,7 +169,7 @@ if AUDIENCE:
 
 
 if DEBUG:
-    BROKER_URL = 'redis://localhost:6379/'
+    BROKER_URL = os.environ.get("REDIS_URL",'redis://localhost:6379/')
 else:
     BROKER_URL = os.environ.get("REDIS_URL")
 CELERY_ACCEPT_CONTENT = ['json']
